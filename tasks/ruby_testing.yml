@@ -1,0 +1,14 @@
+---
+# Tasks for ruby test environment
+- name: "Ensure ruby"
+  package:
+    name: "{{ item }}"
+    state: present
+  loop: "{{ ruby_packages }}"
+
+- name: Ensure bundler
+  gem:
+      name: bundler
+      include_dependencies: yes
+      state: present
+      version: 1.16.3

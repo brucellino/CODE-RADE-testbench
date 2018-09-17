@@ -1,0 +1,32 @@
+---
+# defaults file for CODE-RADE-testbench
+prerequisites:
+  - git-core
+  - zlib
+  - zlib-devel
+  - gcc-c++
+  - patch
+  - readline
+  - readline-devel
+  - libyaml-devel
+  - libffi-devel
+  - openssl-devel
+  - make
+  - bzip2
+  - autoconf
+  - automake
+  - libtool
+  - bison
+  - curl
+  - sqlite-devel
+python_packages:
+  - python2
+  - python36
+  - python-setuptools
+  - python36-setuptools
+ruby_packages:
+  - ruby
+  - ruby-devel
+  - ruby-libs
+  - ruby-irb
+  - rubygems

@@ -1,0 +1,14 @@
+---
+# tasks file for CODE-RADE-testbench
+- name: "Ensure EPEL"
+  package:
+    name: epel-release
+    state: present
+    update_cache: yes
+- name: "Ensure prerequisites"
+  package:
+    name: "{{ item }}"
+    state: "present"
+  loop: "{{ prerequisites }}"
+- include_tasks: "python_testing.yml"
+- include_tasks: "ruby_testing.yml"
