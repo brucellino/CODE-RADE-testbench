@@ -32,6 +32,7 @@ pips:
   - pytest
   - mock
   - requests
+  - flake8
 ruby_packages:
   - ruby
   - ruby-devel
