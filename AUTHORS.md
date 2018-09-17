@@ -7,4 +7,3 @@ Firstname Lastname <email@addr.ess>
 -->
 
 - Bruce Becker @brucellino
-- Baptiste Grenier @gwarf

@@ -4,7 +4,7 @@
   package:
     name: epel-release
     state: present
-    update_cache: yes
+    update_cache: true
 - name: "Ensure prerequisites"
   package:
     name: "{{ item }}"
@@ -12,3 +12,4 @@
   loop: "{{ prerequisites }}"
 - include_tasks: "python_testing.yml"
 - include_tasks: "ruby_testing.yml"
+- include_tasks: "security.yml"

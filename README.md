@@ -1,6 +1,8 @@
-# Role Name
+# CODE-RADE testbench
 
+[![Build Status](https://travis-ci.org/AAROC/CODE-RADE-testbench.svg?branch=master)](https://travis-ci.org/AAROC/CODE-RADE-testbench) [![Docker Repository on Quay](https://quay.io/repository/aaroc/code-rade-testbench/status "Docker Repository on Quay")](https://quay.io/repository/aaroc/code-rade-testbench) 
 <!-- A brief description of the role goes here. -->
+This is a container-enabled role to create the testbench image used in running unit tests of CODE-RADE repo code.
 
 ## Requirements
 
@@ -15,14 +17,13 @@ For instance, if the role uses the EC2 module, it may be a good idea to mention 
 <!--
 A description of the settable variables for this role should go here, including any variables that are in defaults/main.yml, vars/main.yml, and any variables that can/should be set via parameters to the role. Any variables that are read from other roles and/or the global scope (ie. hostvars, group vars, etc.) should be mentioned here as well.
 -->
+Variables are described in `defaults.yml`.
+They refer to the packages necessary to be be present on the image.
+
 
 ## Dependencies
 
-<!--
-A list of other roles hosted on Galaxy should go here, plus any details in regards to parameters that may need to be set for other roles, or variables that are used from other roles.
-
-Use https://galaxy.ansible.com/EGI-Foundation/ roles first if possible.
--->
+None
 
 ## Example Playbook
 
@@ -32,10 +33,9 @@ Be sure to write the dependencies explicitly.
 -->
 
 ```yaml
-    - hosts: servers
+    - hosts: CI-initial-stage-servers
       roles:
-         - { role: EGI-Foundation.dependency1 }
-         - { role: EGI-Foundation.rolename, x: 42 }
+         - { role: AAROC.CODE-RADE-testbench }
 ```
 
 ## License
@@ -47,3 +47,4 @@ Apache-2.0
 <!--
 Add the relevant contributors
 -->
+See AUTHORS.md
