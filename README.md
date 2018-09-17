@@ -3,6 +3,7 @@
 [![Build Status](https://travis-ci.org/AAROC/CODE-RADE-testbench.svg?branch=master)](https://travis-ci.org/AAROC/CODE-RADE-testbench) [![Docker Repository on Quay](https://quay.io/repository/aaroc/code-rade-testbench/status "Docker Repository on Quay")](https://quay.io/repository/aaroc/code-rade-testbench) 
 <!-- A brief description of the role goes here. -->
 This is a container-enabled role to create the testbench image used in running unit tests of CODE-RADE repo code.
+It is based off of the standard [CODE-RADE build container](https://github.com/AAROC/CODE-RADE-container) with some extra language-specific tools described below.
 This image is used during the first part of the testing pipeline, to run unit and linting tests on the code in the repo under question.
 It contains the following runtime environments:
 
