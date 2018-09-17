@@ -1,3 +1,0 @@
-molecule
-pymarkdownlint
-docker-py
