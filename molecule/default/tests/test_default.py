@@ -36,3 +36,10 @@ def test_python_installed(host, p):
 def test_ruby_installed(host, p):
     pkg = host.package(p)
     assert pkg.is_installed
+
+
+def test_security_updates(host):
+    '''
+    check the stuff that quay gives you and test for vulnerabilities
+    '''
+    assert not host.package('kernel_headers').is_installed

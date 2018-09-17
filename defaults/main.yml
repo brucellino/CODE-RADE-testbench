@@ -19,14 +19,27 @@ prerequisites:
   - bison
   - curl
   - sqlite-devel
+  - ShellCheck
 python_packages:
   - python2
   - python36
   - python-setuptools
+  - python-virtualenv
   - python36-setuptools
+  - python2-pip
+  - python34-pip
+pips:
+  - pytest
+  - mock
+  - requests
 ruby_packages:
   - ruby
   - ruby-devel
   - ruby-libs
   - ruby-irb
   - rubygems
+gems:
+  - name: bundler
+    version: 1.16.3
+  - name: rspec
+    version: 3.8.0

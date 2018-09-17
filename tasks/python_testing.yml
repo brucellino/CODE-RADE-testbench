@@ -5,3 +5,29 @@
     name: "{{ item }}"
     state: "present"
   loop: "{{ python_packages }}"
+
+- name: Ensure the right pip
+  pip:
+    name: pip
+    state: present
+    version: "18.0"
+
+- name: Ensure testing pips are present (Python2)
+  become: true
+  become_user: jenkins
+  pip:
+    name: "{{ item }}"
+    state: present
+    virtualenv: /home/jenkins/python2
+    virtualenv_python: python2.7
+  loop: "{{ pips }}"
+
+- name: Ensure testing pips are present (Python3)
+  become: true
+  become_user: jenkins
+  pip:
+    name: "{{ item }}"
+    state: present
+    virtualenv: /home/jenkins/python3
+    virtualenv_python: python3.6
+  loop: "{{ pips }}"

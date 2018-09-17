@@ -8,14 +8,14 @@ services:
 env:
   global:
     - md_ignore: R1
+    - secure: zTyF9MysK5bcKhUuBGeu+pMIxDBWwC6vtrinAL3mC7aDNy77ZgkBjpuYwluyBbUojUwKJ8FNYpCVIlc3OMRI1KmsmiiNGbZugOoGvo0OMw/AcW3LVenhn11F4Bs6b17Up2JSrr+wB5sE/H2z2NxVc2NMKNTHVP3d53LFiFXJWrzAjuzYjOplzMSiaVYdzFyBNJ/hCzT+KuUdPZWLtBCXw8Sho47nf4SuwO5CqVFuAcOSF7rTuDdw58YV1o+MVxljhD9r5Cnmw9M9wpF0A1Nodb9yUzXKGtMySn6VTCjNSkqcGyO8kcfLNVRIo2EMnCQTB2bFSyQpoiOJU0ifZiMXOEm3qxTLpms56fUzJ/Lo8psWNcn3+OIASQQjynCXYh3vFiT1i3k0ZYfqh/BAIqb0yDcpau74j5JnyrExkT32EMncaRJ52XT3zjP1dQYtrwAFK7wLP5dlTJWrE/4oKt7PX6SXylCksG9gnt4lmbshtpzm/UOcPAHXXCj7mMfD6t+gX6bVLxR0m5UVyFXW/XfKQgeK1iMKxrIQXE9Qihv95AqSoB+B/oMsnoDIJdzVxaiQFncuzBnv2DwzvuqpzxRgMnnWW6+zV7DT1GrvU6aSHGOLMMAYXmeSdSjNSZo5Nq+plEHD1a8X7ANi83tCwNrCXgEkPvRkI1ioQ4rxN1QSucU=
   matrix:
     - SCENARIO='default'
 before_install:
 install:
   - pip install -r requirements.txt
 before_script:
-  - 'for file in `find . -maxdepth 2 -name "*.md"` ;  do markdownlint --ignore $md_ignore
-  $file ; done'
+  - for file in `find . -maxdepth 2 -name "*.md"` ;  do markdownlint --ignore $md_ignore $file ; done
 script:
   - molecule lint -s $SCENARIO
   - molecule dependency -s $SCENARIO
@@ -25,6 +25,9 @@ script:
   - molecule verify -s $SCENARIO
   - cd $TRAVIS_BUILD_DIR
 after_success:
+  - docker login -u="aaroc+buildy_mc_testface" -p=$QUAY_PASSWORD quay.io
+  - docker commit -m "${TRAVIS_COMMIT_MESSAGE}" instance quay.io/aaroc/code-rade-testbed
+  - docker push quay.io/aaroc/code-rade-testbed
 after_failure:
 before_deploy:
 deploy:
