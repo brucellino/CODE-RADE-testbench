@@ -19,11 +19,17 @@ prerequisites:
   - bison
   - curl
   - sqlite-devel
+  - ShellCheck
 python_packages:
   - python2
   - python36
   - python-setuptools
   - python36-setuptools
+pips:
+  - pytest
+  - mock
+  - requests
+  - json
 ruby_packages:
   - ruby
   - ruby-devel

@@ -5,3 +5,9 @@
     name: "{{ item }}"
     state: "present"
   loop: "{{ python_packages }}"
+
+- name: Ensure testing pips are present
+  pip:
+    name: "{{ item }}"
+    state: present
+  loop: "{{ pips }}"

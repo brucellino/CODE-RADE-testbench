@@ -12,3 +12,9 @@
     include_dependencies: true
     state: present
     version: 1.16.3
+
+- name: "Ensure gems"
+  bundler:
+    gemfile: files/Gemfile
+    user_install: false
+    state: present

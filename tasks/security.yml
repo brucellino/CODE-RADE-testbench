@@ -2,5 +2,5 @@
 # security updates tasks
 - name: "Ensure kernel headers up to date"
   package:
-    name: 'kernel-headers-4.11.0-44.4.1.el7a'
-    state: present
+    name: 'kernel-headers'
+    state: absent

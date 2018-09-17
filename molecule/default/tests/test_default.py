@@ -42,6 +42,4 @@ def test_security_updates(host):
     '''
     check the stuff that quay gives you and test for vulnerabilities
     '''
-    assert host.package('kernel_headers').is_installed
-    assert host.package('kernel_headers') \
-               .version.starts_with('4.11.0')
+    assert not host.package('kernel_headers').is_installed
