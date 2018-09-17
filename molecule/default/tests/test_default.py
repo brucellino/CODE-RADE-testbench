@@ -23,9 +23,22 @@ def test_python_installed(host, p):
     assert pkg.is_installed
 
 
-# @pytest.mark.parametrize("pip_package", ["pytest"])
-# def test_python_tools(host):
-#     assert host.pip_package.get_packages()
+@pytest.mark.parametrize("pip", ["pytest",
+                                 "flake8"])
+def test_python2_tools(host, pip):
+    # set up python2
+    pip2_packages = host.pip_package\
+                        .get_packages(pip_path='/home/jenkins/python2/bin/pip')
+    assert pip in pip2_packages
+
+
+@pytest.mark.parametrize("pip", ["pytest",
+                                 "flake8"])
+def test_python3_tools(host, pip):
+    # set up python2
+    pip3_packages = host.pip_package\
+                        .get_packages(pip_path='/home/jenkins/python3/bin/pip')
+    assert pip in pip3_packages
 
 
 @pytest.mark.parametrize("p", ["ruby",
