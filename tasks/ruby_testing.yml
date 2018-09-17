@@ -6,15 +6,13 @@
     state: present
   loop: "{{ ruby_packages }}"
 
-- name: Ensure bundler
+- name: Ensure gems
+  become: true
+  become_user: jenkins
   gem:
-    name: bundler
+    name: "{{ item.name }}"
     include_dependencies: true
     state: present
-    version: 1.16.3
-
-- name: "Ensure gems"
-  bundler:
-    gemfile: files/Gemfile
-    user_install: false
-    state: present
+    version: "{{ item.version }}"
+    user_install: true
+  loop: "{{ gems }}"

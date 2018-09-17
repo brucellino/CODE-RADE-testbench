@@ -10,6 +10,17 @@
     name: "{{ item }}"
     state: "present"
   loop: "{{ prerequisites }}"
+- name: Add jenkins user
+  user:
+    name: jenkins
+    comment: "testing user"
+    home: /home/jenkins
+    uid: 1000
+    ssh_key_comment: ansible-generated
+    shell: /bin/bash
+    local: true
+    state: present
+
 - include_tasks: "python_testing.yml"
 - include_tasks: "ruby_testing.yml"
 - include_tasks: "security.yml"
