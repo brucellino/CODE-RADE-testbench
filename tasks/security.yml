@@ -2,5 +2,6 @@
 # security updates tasks
 - name: "Ensure kernel headers up to date"
   package:
-    name: 'kernel-headers'
+    name: "{{ item }}"
     state: absent
+  loop: "{{ remove_packages }}"

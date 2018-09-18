@@ -20,6 +20,9 @@ prerequisites:
   - curl
   - sqlite-devel
   - ShellCheck
+remove_packages:
+  - kernel-debug-devel
+  - kernel-headers
 python_packages:
   - python2
   - python36
