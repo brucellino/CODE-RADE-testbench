@@ -26,8 +26,8 @@ script:
   - cd $TRAVIS_BUILD_DIR
 after_success:
   - docker login -u="aaroc+buildy_mc_testface" -p=$QUAY_PASSWORD quay.io
-  - docker commit -m "${TRAVIS_COMMIT_MESSAGE}" instance quay.io/aaroc/code-rade-testbed
-  - docker push quay.io/aaroc/code-rade-testbed
+  - docker commit -m "${TRAVIS_COMMIT_MESSAGE}" instance quay.io/aaroc/code-rade-testbench
+  - docker push quay.io/aaroc/code-rade-testbench
 after_failure:
 before_deploy:
 deploy:
